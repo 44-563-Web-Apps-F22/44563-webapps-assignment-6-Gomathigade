@@ -19,11 +19,33 @@
 
 
 <p id="result">Correct/Wrong answer counter! </p>
+<div class="container">
+    <img src="Greenfly.jpg" alt="Butterfly" height="100" width="100" onclick="swapImage(this)" id="image_container">
+</div>
+</body>
 
 <script> 
 
   var correct = 0
   var wrong = 0
+
+  var useImage = 1
+
+    function swapImage() {
+
+        switch(useImage) {
+            case 1: document.getElementById("image_container").setAttribute("src", "Alderflies.jpg")
+                    useImage = 2;
+                    break;
+            case 2: document.getElementById("image_container").setAttribute("src", "Greenfly.jpg")
+                    useImage = 3;
+                    break;
+            case 3: document.getElementById("image_container").setAttribute("src", "Darter Dragonfly.jpg")
+                    useImage = 1;
+                    break;
+        }
+
+    }
 
 function checkGuess(){
     console.log("Getting form values")
@@ -43,5 +65,5 @@ function checkGuess(){
 }
 </script>
 
-</body>
+
 </html> 
