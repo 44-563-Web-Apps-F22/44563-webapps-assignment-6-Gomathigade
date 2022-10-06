@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vacation Page</title>
+</head>
+
+<body>
+
+    <h2>Gomathi Gade selects a vacation</h2>
+
+    <form>
+        <input type="checkbox" id="travel" name="vacation1" value="True">
+        <label for="travel">Travel by Air</label></br>
+
+        <input type="checkbox" id="domestic" name="vacation2" value="True">
+        <label for="domestic">Domestic</label></br>
+
+        <input type="checkbox" id="resort" name="vacation3" value="False" checked>
+        <label for="resort">Resort</label></br>
+
+        <input type="button" onclick="selectVacation()" value="Select a vacation">
+    </form>
+
+    <p id="checked">Resulting Object </p>
+
+    <form>
+        <label for="property">Enter a city : </label>
+        <input type="text" id="property" name="property" value="city"> <br>
+
+        <label for="price">Enter price : </label>
+        <input type="text" id="price" name="price"> <br>
+
+        <input type="button" onclick="updateVacation()" value="Update the vacation">
+    </form>
+
+
+    <p id="formResult">Object after updation </p>
+
+</body>
+
+<script>
+
+    var my_vacation = {}
+
+    function selectVacation() {
+        my_vacation = {}
+
+        let checkTravel = document.getElementById("travel").checked 
+        let checkDomestic = document.getElementById("domestic").checked 
+        let checkResort = document.getElementById("resort").checked 
+
+        my_vacation = {
+            "air" : checkTravel,
+            "domestic" : checkDomestic,
+            "resort" : checkResort 
+        }
+
+        document.getElementById("checked").innerHTML = "Object : "+JSON.stringify(my_vacation)
+        console.log(my_vacation)
+    }
+
+    function updateVacation() {
+        let property = document.getElementById("property").value
+        let price = document.getElementById("price").value
+
+        my_vacation.property = property
+        my_vacation.price = price
+
+        document.getElementById("formResult").innerHTML = "Object : "+JSON.stringify(my_vacation)
+    }
+</script>
+
+
+</html>
