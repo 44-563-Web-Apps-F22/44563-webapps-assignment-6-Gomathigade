@@ -2,26 +2,36 @@
 <html>
  <head>
     <title>Musician Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
  </head>
 <body>
 
 <h2>Musician guess by Gomathi</h2>
 
 <form>
+    <div class="form-group">
     <label for="MusicianName">Enter the secret musician name </label>
     <input type ="password" id="MusicianName" name="MusicianName" value="John Lennon"> <br>
+    </div>
 
+    <div class="form-group">
     <label for="guessName">Guess the musician </label>
     <input type ="text" id="guessName" name="guessName" autofocus> <br>
+    </div>
 
-    <input type="button" onclick="checkGuess()" value="check the guess">
+    <input type="button" onclick="checkGuess()" value="Check the guess" id="guessButton" class="btn btn-primary">
 </form>
 
 
 <p id="result">Correct/Wrong answer counter! </p>
+
+<hr>
+
 <div class="container">
     <img src="Greenfly.jpg" alt="Butterfly" height="100" width="100" onclick="swapImage(this)" id="image_container">
 </div>
+
 </body>
 
 <script> 
@@ -47,6 +57,11 @@
 
     }
 
+    function gameover() {
+        document.getElementById("result").innerHTML = "Sorry! Game Over!!!!"
+    
+    }
+
 function checkGuess(){
     console.log("Getting form values")
     name = document.getElementById("MusicianName").value
@@ -54,11 +69,15 @@ function checkGuess(){
     
     if(name === guess){
         correct = correct + 1
+        wrong = 0
         alert("You got it right!!")
         
     } else {
         wrong = wrong + 1 
         alert("wrong musician!!")
+        if (wrong ==3) {
+            document.getElementById("guessButton").setAttribute("onclick", "gameover()")
+        }
 
     }
     document.getElementById("result").innerHTML = "wrong guess :" + wrong + "\n correct guess :" + correct

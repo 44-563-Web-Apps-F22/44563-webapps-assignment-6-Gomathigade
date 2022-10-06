@@ -3,6 +3,8 @@
 
 <head>
     <title>Discounts computation Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 
 <body>
@@ -16,7 +18,7 @@
         <label for="discount">Enter the discount percentage : </label>
         <input type="number" id="discount" name="discount" value=10> <br>
 
-        <input type="button" onclick="discounted_cost()" value="Apply discount ">
+        <input type="button" onclick="discounted_cost()" value="Apply discount " class="btn btn-success">
     </form> <br>
     <p id="result">Discounted cost is : </p> <br>
 
@@ -32,7 +34,7 @@
         <input type="radio" id="exponent" name="ops" value="exponent">
         <label for="exponent">**</label></br>
 
-        <input type="button" onclick="chooseOp()" value="Get Operation Values">
+        <input type="button" onclick="chooseOp()" value="Get Operation Values" class="btn btn-warning">
     </form> <br>
     <p id="operatorResult">Result : </p> <br>
 
